@@ -1,7 +1,3 @@
-const button = document.querySelector("button");
+// IGS Home Care
 
-button.addEventListener("click", function(){
-
-window.location.href="tel:01919426929";
-
-});
+console.log("Website Loaded Successfully");
