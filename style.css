@@ -1,299 +1,414 @@
 /* ==========================
    IGS HOME CARE
-   STYLE VERSION 2
 ========================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
+    background:#07131f;
+    color:#fff;
+    line-height:1.7;
+}
 
-background:#081523;
-color:white;
-
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
 }
 
 /* HEADER */
 
 header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#081523;
+    padding:18px 0;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:20px 8%;
-
-background:#0b1d30;
-
-position:sticky;
-
-top:0;
-
-z-index:999;
-
+header .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo h2{
-
-color:#ff7a00;
-
-font-size:30px;
-
+    color:#ff7a00;
+    font-size:30px;
 }
 
-nav a{
-
-text-decoration:none;
-
-color:white;
-
-margin-left:25px;
-
-transition:.3s;
-
-font-weight:500;
-
+nav ul{
+    display:flex;
+    list-style:none;
 }
 
-nav a:hover{
+nav ul li{
+    margin-left:25px;
+}
 
-color:#ff7a00;
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
 
+nav ul li a:hover{
+    color:#ff7a00;
 }
 
 /* HERO */
 
-#home{
-
-padding:120px 10%;
-
-text-align:center;
-
-background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65));
-
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("https://picsum.photos/1920/1080?home");
+    background-size:cover;
+    background-position:center;
 }
 
-#home h1{
-
-font-size:50px;
-
-margin-bottom:20px;
-
+.hero-content h1{
+    font-size:55px;
+    margin-bottom:20px;
 }
 
-#home p{
-
-font-size:20px;
-
-margin-bottom:35px;
-
-color:#ddd;
-
+.hero-content p{
+    font-size:22px;
+    color:#ddd;
+    margin-bottom:35px;
 }
 
-button{
-
-background:#ff7a00;
-
-color:white;
-
-border:none;
-
-padding:15px 35px;
-
-font-size:18px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-transition:.4s;
-
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-button:hover{
+.btn,
+.btn2{
+    padding:15px 35px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+}
 
-background:#ff5200;
+.btn{
+    background:#ff7a00;
+}
 
-transform:scale(1.05);
+.btn:hover{
+    background:#ff5400;
+}
 
+.btn2{
+    background:#25D366;
+}
+
+.btn2:hover{
+    background:#1da851;
 }
 
 /* SECTION */
 
 section{
-
-padding:80px 10%;
-
+    padding:100px 0;
 }
 
 section h2{
-
-text-align:center;
-
-margin-bottom:40px;
-
-color:#ff7a00;
-
-font-size:36px;
-
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+    color:#ff7a00;
 }
 
 /* SERVICES */
 
-#services{
+.service-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#10253d;
+    border-radius:15px;
+    padding:35px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card i{
+    font-size:50px;
+    color:#ff7a00;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+}
+
+/* ==========================
+   ABOUT
+========================== */
+
+#about{
+    background:#0b1d30;
+    text-align:center;
+}
+
+#about p{
+    max-width:900px;
+    margin:auto;
+    color:#ddd;
+    font-size:18px;
+}
+
+
+/* ==========================
+   GALLERY
+========================== */
+
+.gallery{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
 gap:25px;
 
 }
 
-.card{
+.gallery-item{
 
-background:#10243d;
-
-padding:40px;
+overflow:hidden;
 
 border-radius:15px;
 
-font-size:22px;
-
-text-align:center;
-
-transition:.4s;
+background:#10253d;
 
 }
 
-.card:hover{
+.gallery-item img{
 
-transform:translateY(-10px);
+width:100%;
 
-box-shadow:0 10px 30px rgba(0,0,0,.4);
+height:250px;
 
-}
+object-fit:cover;
 
-/* ABOUT */
+display:block;
 
-#about{
-
-text-align:center;
-
-line-height:2;
+transition:.5s;
 
 }
 
-/* GALLERY */
+.gallery-item:hover img{
 
-#gallery{
-
-text-align:center;
+transform:scale(1.1);
 
 }
 
-/* TEAM */
 
-#team{
+/* ==========================
+   TEAM
+========================== */
 
-text-align:center;
+.team-box{
 
-}
+display:grid;
 
-/* CONTACT */
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-#contact{
-
-text-align:center;
-
-line-height:2;
+gap:25px;
 
 }
 
-/* FOOTER */
+.team-card{
 
-footer{
+background:#10253d;
 
-background:#06111d;
+border-radius:15px;
 
 padding:25px;
 
 text-align:center;
 
-margin-top:40px;
+transition:.3s;
 
 }
 
-/* RESPONSIVE */
+.team-card img{
 
-@media(max-width:768px){
+width:170px;
 
-header{
+height:170px;
 
-flex-direction:column;
+border-radius:50%;
 
-}
+object-fit:cover;
 
-nav{
+margin-bottom:20px;
 
-margin-top:20px;
-
-}
-
-nav a{
-
-display:inline-block;
-
-margin:10px;
+border:5px solid #ff7a00;
 
 }
 
-#home h1{
+.team-card h3{
 
-font-size:35px;
-
-}
-
-section{
-
-padding:60px 6%;
+margin-bottom:10px;
 
 }
 
-/* ===============================
-HERO BACKGROUND
-=============================== */
+.team-card p{
 
-#home{
+color:#ddd;
 
-background-image:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600");
+}
 
-background-size:cover;
+.team-card:hover{
 
-background-position:center;
+transform:translateY(-10px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.4);
 
 }
 
 
-/* ===============================
-WHATSAPP BUTTON
-=============================== */
+/* ==========================
+   CONTACT
+========================== */
+
+#contact{
+
+background:#0b1d30;
+
+text-align:center;
+
+}
+
+#contact h3{
+
+margin:15px 0;
+
+color:#ff7a00;
+
+}
+
+#contact p{
+
+color:#ddd;
+
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+background:#06111d;
+
+padding:60px 0 20px;
+
+}
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+margin-bottom:30px;
+
+}
+
+.footer-grid h3{
+
+margin-bottom:20px;
+
+color:#ff7a00;
+
+}
+
+.footer-grid ul{
+
+list-style:none;
+
+}
+
+.footer-grid ul li{
+
+margin:10px 0;
+
+}
+
+.footer-grid ul li a{
+
+text-decoration:none;
+
+color:#ddd;
+
+}
+
+.footer-grid ul li a:hover{
+
+color:#ff7a00;
+
+}
+
+footer hr{
+
+border:1px solid #1f3348;
+
+margin:25px 0;
+
+}
+
+.copyright{
+
+text-align:center;
+
+color:#aaa;
+
+}
+
+
+/* ==========================
+   WHATSAPP
+========================== */
 
 .whatsapp{
 
 position:fixed;
 
-right:20px;
-
 bottom:20px;
+
+right:20px;
 
 width:65px;
 
@@ -301,7 +416,7 @@ height:65px;
 
 background:#25D366;
 
-border-radius:50%;
+color:white;
 
 display:flex;
 
@@ -309,20 +424,106 @@ justify-content:center;
 
 align-items:center;
 
+font-size:30px;
+
+border-radius:50%;
+
 text-decoration:none;
-
-color:white;
-
-font-size:32px;
 
 box-shadow:0 10px 25px rgba(0,0,0,.35);
 
 transition:.3s;
+
+z-index:999;
 
 }
 
 .whatsapp:hover{
 
 transform:scale(1.1);
+
+}
+
+
+/* ==========================
+   BACK TO TOP
+========================== */
+
+#topBtn{
+
+position:fixed;
+
+bottom:100px;
+
+right:25px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+background:#ff7a00;
+
+color:white;
+
+border-radius:50%;
+
+font-size:20px;
+
+cursor:pointer;
+
+display:none;
+
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+header .container{
+
+flex-direction:column;
+
+}
+
+nav ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+margin-top:20px;
+
+}
+
+nav ul li{
+
+margin:10px;
+
+}
+
+.hero-content h1{
+
+font-size:38px;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
+}
+
+section h2{
+
+font-size:30px;
+
+}
 
 }
