@@ -266,4 +266,63 @@ padding:60px 6%;
 
 }
 
+/* ===============================
+HERO BACKGROUND
+=============================== */
+
+#home{
+
+background-image:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600");
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+
+/* ===============================
+WHATSAPP BUTTON
+=============================== */
+
+.whatsapp{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+width:65px;
+
+height:65px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-decoration:none;
+
+color:white;
+
+font-size:32px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+transition:.3s;
+
+}
+
+.whatsapp:hover{
+
+transform:scale(1.1);
+
 }
