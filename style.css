@@ -1,34 +1,98 @@
+/* ==========================
+   IGS HOME CARE
+   STYLE VERSION 2
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
 body{
 
-margin:0;
-
-font-family:Arial,sans-serif;
-
-background:#08192d;
-
+background:#081523;
 color:white;
 
-text-align:center;
-
 }
+
+/* HEADER */
 
 header{
 
-background:#0f2744;
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-padding:40px;
+padding:20px 8%;
+
+background:#0b1d30;
+
+position:sticky;
+
+top:0;
+
+z-index:999;
 
 }
 
-h1{
+.logo h2{
+
+color:#ff7a00;
+
+font-size:30px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+margin-left:25px;
+
+transition:.3s;
+
+font-weight:500;
+
+}
+
+nav a:hover{
 
 color:#ff7a00;
 
 }
 
-section{
+/* HERO */
 
-padding:40px;
+#home{
+
+padding:120px 10%;
+
+text-align:center;
+
+background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65));
+
+}
+
+#home h1{
+
+font-size:50px;
+
+margin-bottom:20px;
+
+}
+
+#home p{
+
+font-size:20px;
+
+margin-bottom:35px;
+
+color:#ddd;
 
 }
 
@@ -40,18 +104,166 @@ color:white;
 
 border:none;
 
-padding:15px 30px;
+padding:15px 35px;
 
 font-size:18px;
 
-border-radius:8px;
+border-radius:10px;
 
 cursor:pointer;
+
+transition:.4s;
 
 }
 
 button:hover{
 
-background:#ff5500;
+background:#ff5200;
+
+transform:scale(1.05);
+
+}
+
+/* SECTION */
+
+section{
+
+padding:80px 10%;
+
+}
+
+section h2{
+
+text-align:center;
+
+margin-bottom:40px;
+
+color:#ff7a00;
+
+font-size:36px;
+
+}
+
+/* SERVICES */
+
+#services{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:#10243d;
+
+padding:40px;
+
+border-radius:15px;
+
+font-size:22px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+}
+
+/* ABOUT */
+
+#about{
+
+text-align:center;
+
+line-height:2;
+
+}
+
+/* GALLERY */
+
+#gallery{
+
+text-align:center;
+
+}
+
+/* TEAM */
+
+#team{
+
+text-align:center;
+
+}
+
+/* CONTACT */
+
+#contact{
+
+text-align:center;
+
+line-height:2;
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:#06111d;
+
+padding:25px;
+
+text-align:center;
+
+margin-top:40px;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+}
+
+nav{
+
+margin-top:20px;
+
+}
+
+nav a{
+
+display:inline-block;
+
+margin:10px;
+
+}
+
+#home h1{
+
+font-size:35px;
+
+}
+
+section{
+
+padding:60px 6%;
+
+}
 
 }
