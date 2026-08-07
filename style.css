@@ -527,3 +527,112 @@ font-size:30px;
 }
 
 }
+/* ==========================
+STATS
+========================== */
+
+#stats{
+
+background:#081523;
+
+}
+
+.stats-box{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+text-align:center;
+
+}
+
+.stat{
+
+background:#10253d;
+
+padding:35px;
+
+border-radius:15px;
+
+}
+
+.stat h1{
+
+font-size:45px;
+
+color:#ff7a00;
+
+}
+
+
+/* ==========================
+REVIEWS
+========================== */
+
+#reviews{
+
+background:#0b1d30;
+
+}
+
+.review-box{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+
+}
+
+.review{
+
+background:#10253d;
+
+padding:30px;
+
+border-radius:15px;
+
+}
+
+.review p{
+
+margin:15px 0;
+
+color:#ddd;
+
+}
+
+
+/* ==========================
+CTA
+========================== */
+
+#cta{
+
+text-align:center;
+
+background:linear-gradient(135deg,#ff7a00,#ff5200);
+
+padding:80px 20px;
+
+}
+
+#cta h2{
+
+color:#fff;
+
+margin-bottom:20px;
+
+}
+
+#cta p{
+
+margin-bottom:30px;
+
+color:#fff;
+
+   }
