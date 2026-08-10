@@ -1,146 +1,290 @@
-// ================================
-// IGS Home Care Script
-// ================================
+/* =========================================
+   IGS HOME CARE
+   MAIN JAVASCRIPT
+   ========================================= */
 
-// Back To Top Button
+document.addEventListener("DOMContentLoaded", function () {
 
-const topBtn = document.getElementById("topBtn");
+    /* =========================================
+       MOBILE MENU
+       ========================================= */
 
-window.onscroll = function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
 
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    if (menuBtn && nav) {
 
-        topBtn.style.display = "block";
+        menuBtn.addEventListener("click", function () {
 
-    } else {
+            nav.classList.toggle("active");
 
-        topBtn.style.display = "none";
+            const icon = menuBtn.querySelector("i");
+
+            if (icon) {
+
+                if (nav.classList.contains("active")) {
+
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-xmark");
+
+                } else {
+
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+
+                }
+
+            }
+
+        });
 
     }
 
-};
 
-topBtn.onclick = function () {
+    /* =========================================
+       CLOSE MOBILE MENU AFTER CLICKING LINK
+       ========================================= */
 
-    window.scrollTo({
+    const navLinks = document.querySelectorAll("nav a");
 
-        top: 0,
+    navLinks.forEach(function (link) {
 
-        behavior: "smooth"
+        link.addEventListener("click", function () {
+
+            if (nav) {
+                nav.classList.remove("active");
+            }
+
+            if (menuBtn) {
+
+                const icon = menuBtn.querySelector("i");
+
+                if (icon) {
+
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+
+                }
+
+            }
+
+        });
 
     });
 
-};
 
+    /* =========================================
+       BACK TO TOP BUTTON
+       ========================================= */
 
-// ================================
-// Active Menu
-// ================================
+    const topBtn = document.getElementById("topBtn");
 
-const navLinks = document.querySelectorAll("nav a");
+    function checkScroll() {
 
-navLinks.forEach(link => {
+        if (!topBtn) return;
 
-    link.addEventListener("click", function () {
+        if (window.scrollY > 300) {
 
-        navLinks.forEach(item => item.classList.remove("active"));
+            topBtn.style.display = "flex";
 
-        this.classList.add("active");
+        } else {
 
-    });
-
-});
-
-
-// ================================
-// Card Animation
-// ================================
-
-const cards = document.querySelectorAll(".card");
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-            entry.target.style.opacity = "1";
-
-            entry.target.style.transform = "translateY(0)";
+            topBtn.style.display = "none";
 
         }
 
+    }
+
+    window.addEventListener("scroll", checkScroll);
+
+    checkScroll();
+
+
+    if (topBtn) {
+
+        topBtn.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    }
+
+
+    /* =========================================
+       SCROLL ANIMATION
+       ========================================= */
+
+    const animatedElements = document.querySelectorAll(
+        ".card, .team-card, .gallery-item, .stat, .review"
+    );
+
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(
+            function (entries, observer) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+        animatedElements.forEach(function (element) {
+
+            element.classList.add("scroll-hidden");
+
+            observer.observe(element);
+
+        });
+
+    } else {
+
+        animatedElements.forEach(function (element) {
+
+            element.classList.add("show");
+
+        });
+
+    }
+
+
+    /* =========================================
+       ACTIVE NAVIGATION
+       ========================================= */
+
+    const sections = document.querySelectorAll("section[id]");
+
+    window.addEventListener("scroll", function () {
+
+        let currentSection = "";
+
+        sections.forEach(function (section) {
+
+            const sectionTop = section.offsetTop - 150;
+
+            const sectionHeight = section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
+            ) {
+
+                currentSection = section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(function (link) {
+
+            link.classList.remove("active");
+
+            const href = link.getAttribute("href");
+
+            if (href === "#" + currentSection) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
     });
 
-});
 
-cards.forEach(card => {
+    /* =========================================
+       HERO BUTTON SAFETY
+       ========================================= */
 
-    card.style.opacity = "0";
+    const callButtons = document.querySelectorAll(
+        'a[href^="tel:"]'
+    );
 
-    card.style.transform = "translateY(40px)";
+    callButtons.forEach(function (button) {
 
-    card.style.transition = "0.7s";
+        button.addEventListener("click", function () {
 
-    observer.observe(card);
+            console.log("Calling IGS Home Care");
 
-});
+        });
 
-
-// ================================
-// Team Animation
-// ================================
-
-const teamCards = document.querySelectorAll(".team-card");
-
-teamCards.forEach(card => {
-
-    card.style.opacity = "0";
-
-    card.style.transform = "translateY(50px)";
-
-    card.style.transition = ".8s";
-
-    observer.observe(card);
-
-});
+    });
 
 
-// ================================
-// Gallery Animation
-// ================================
+    /* =========================================
+       WHATSAPP BUTTON
+       ========================================= */
 
-const gallery = document.querySelectorAll(".gallery-item");
+    const whatsappButton = document.querySelector(".whatsapp");
 
-gallery.forEach(img => {
+    if (whatsappButton) {
 
-    img.style.opacity = "0";
+        whatsappButton.addEventListener("click", function () {
 
-    img.style.transform = "scale(.9)";
+            console.log("Opening WhatsApp");
 
-    img.style.transition = ".8s";
+        });
 
-    observer.observe(img);
-
-});
+    }
 
 
-// ================================
-// Footer Year
-// ================================
+    /* =========================================
+       GALLERY IMAGE EFFECT
+       ========================================= */
 
-console.log("IGS Home Care Loaded Successfully");
+    const galleryImages = document.querySelectorAll(
+        ".gallery-item img"
+    );
 
-// =========================
-// Mobile Menu
-// =========================
+    galleryImages.forEach(function (image) {
 
-const menuBtn = document.querySelector(".menu-btn");
+        image.addEventListener("error", function () {
 
-const nav = document.querySelector("nav");
+            image.style.display = "none";
 
-menuBtn.addEventListener("click",()=>{
+        });
 
-nav.classList.toggle("active");
+    });
+
+
+    /* =========================================
+       CURRENT YEAR
+       ========================================= */
+
+    const yearElements = document.querySelectorAll(
+        ".current-year"
+    );
+
+    yearElements.forEach(function (element) {
+
+        element.textContent = new Date().getFullYear();
+
+    });
+
+
+    /* =========================================
+       WEBSITE LOADED
+       ========================================= */
+
+    console.log("IGS Home Care website loaded successfully.");
 
 });
