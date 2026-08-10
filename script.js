@@ -130,3 +130,17 @@ gallery.forEach(img => {
 // ================================
 
 console.log("IGS Home Care Loaded Successfully");
+
+// =========================
+// Mobile Menu
+// =========================
+
+const menuBtn = document.querySelector(".menu-btn");
+
+const nav = document.querySelector("nav");
+
+menuBtn.addEventListener("click",()=>{
+
+nav.classList.toggle("active");
+
+});
