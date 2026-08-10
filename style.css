@@ -714,3 +714,81 @@ transform:translateY(0);
 }
 
    }
+
+/* ==========================
+MOBILE MENU
+========================== */
+
+.menu-btn{
+
+display:none;
+
+font-size:30px;
+
+color:#fff;
+
+cursor:pointer;
+
+}
+
+@media(max-width:768px){
+
+.menu-btn{
+
+display:block;
+
+}
+
+nav{
+
+display:none;
+
+width:100%;
+
+margin-top:20px;
+
+}
+
+nav.active{
+
+display:block;
+
+animation:fade .4s;
+
+}
+
+nav ul{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+nav ul li{
+
+margin:15px 0;
+
+}
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(-15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
