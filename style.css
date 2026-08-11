@@ -821,3 +821,57 @@ transform:translateY(0);
 }
 
 }
+
+/* ==========================
+   JAVASCRIPT ANIMATION
+========================== */
+
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.scroll-hidden.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ACTIVE MENU */
+
+nav ul li a.active {
+    color: #ff7a00;
+}
+
+
+/* TOP BUTTON */
+
+#topBtn {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* MOBILE MENU FIX */
+
+@media (max-width: 768px) {
+
+    header .container {
+        position: relative;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+   }
