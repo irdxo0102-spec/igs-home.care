@@ -2,7 +2,7 @@
 // IGS HOME CARE - FIREBASE CONFIG
 // =====================================
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyALZpVxWS7W7jFbFoKRsjRgBOT-xM6i7V0",
     authDomain: "igs-home-care.firebaseapp.com",
     projectId: "igs-home-care",
