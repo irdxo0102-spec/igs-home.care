@@ -288,3 +288,71 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("IGS Home Care website loaded successfully.");
 
 });
+
+/* =========================
+   GALLERY LIGHTBOX
+========================= */
+
+const galleryImages = document.querySelectorAll(".gallery-item img");
+
+const lightbox = document.getElementById("lightbox");
+
+const lightboxImage = document.getElementById("lightboxImage");
+
+const closeLightbox = document.getElementById("closeLightbox");
+
+
+galleryImages.forEach(function (image) {
+
+    image.addEventListener("click", function () {
+
+        lightboxImage.src = image.src;
+
+        lightbox.classList.add("show");
+
+    });
+
+});
+
+
+if (closeLightbox) {
+
+    closeLightbox.addEventListener("click", function () {
+
+        lightbox.classList.remove("show");
+
+        lightboxImage.src = "";
+
+    });
+
+}
+
+
+if (lightbox) {
+
+    lightbox.addEventListener("click", function (event) {
+
+        if (event.target === lightbox) {
+
+            lightbox.classList.remove("show");
+
+            lightboxImage.src = "";
+
+        }
+
+    });
+
+}
+
+
+document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape" && lightbox) {
+
+        lightbox.classList.remove("show");
+
+        lightboxImage.src = "";
+
+    }
+
+});
