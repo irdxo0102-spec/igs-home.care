@@ -38,41 +38,63 @@ body{
     line-height:1.7;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(7,26,56,.96);
+    background:rgba(7,26,56,.97);
     backdrop-filter:blur(12px);
-    box-shadow:0 3px 20px rgba(0,0,0,.15);
+    box-shadow:0 3px 20px rgba(0,0,0,.18);
 }
 
 .nav{
     max-width:1150px;
     margin:auto;
-    padding:13px 20px;
+    padding:8px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
+/* LOGO */
+
 .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
     color:white;
-    font-size:22px;
+    font-size:20px;
     font-weight:800;
     text-decoration:none;
+    white-space:nowrap;
 }
 
-.logo span{
+.logo img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    display:block;
+}
+
+.logo-text{
+    color:white;
+}
+
+.logo-text span{
     color:var(--orange);
 }
+
+/* NAV LINKS */
 
 .nav-links{
     display:flex;
     gap:25px;
     list-style:none;
+    align-items:center;
 }
 
 .nav-links a{
@@ -93,7 +115,10 @@ header{
     cursor:pointer;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:650px;
@@ -101,9 +126,30 @@ header{
     align-items:center;
     position:relative;
     overflow:hidden;
+
     background:
-    radial-gradient(circle at 80% 25%,rgba(255,138,0,.18),transparent 28%),
-    linear-gradient(135deg,#06152e,#0c2d5c 60%,#071a38);
+    radial-gradient(
+        circle at 80% 25%,
+        rgba(255,138,0,.20),
+        transparent 28%
+    ),
+    linear-gradient(
+        135deg,
+        #06152e,
+        #0c2d5c 60%,
+        #071a38
+    );
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:50%;
+    right:-180px;
+    top:-180px;
 }
 
 .hero::after{
@@ -111,7 +157,7 @@ header{
     position:absolute;
     width:420px;
     height:420px;
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.07);
     border-radius:50%;
     right:-160px;
     bottom:-180px;
@@ -126,6 +172,8 @@ header{
     grid-template-columns:1.1fr .9fr;
     gap:45px;
     align-items:center;
+    position:relative;
+    z-index:2;
 }
 
 .badge{
@@ -176,7 +224,11 @@ header{
 }
 
 .btn-primary{
-    background:linear-gradient(135deg,var(--orange),var(--orange2));
+    background:linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange2)
+    );
     color:#101010;
     box-shadow:0 8px 25px rgba(255,138,0,.25);
 }
@@ -195,33 +247,45 @@ header{
     color:var(--blue);
 }
 
+
+/* =========================
+   HERO LOGO CARD
+========================= */
+
 .hero-card{
     background:rgba(255,255,255,.07);
     border:1px solid rgba(255,255,255,.13);
-    border-radius:24px;
-    padding:30px;
+    border-radius:28px;
+    padding:35px 25px;
     color:white;
-    box-shadow:0 25px 60px rgba(0,0,0,.22);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+    backdrop-filter:blur(8px);
 }
 
 .hero-logo{
-    width:115px;
-    height:115px;
+    width:190px;
+    height:190px;
     margin:0 auto 20px;
-    border-radius:50%;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:40px;
-    font-weight:900;
-    background:linear-gradient(145deg,#fff,#d8dce5);
-    color:var(--blue);
-    border:7px solid var(--orange);
+}
+
+.hero-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+
+    filter:
+        drop-shadow(0 15px 25px rgba(0,0,0,.35));
 }
 
 .hero-card h3{
     text-align:center;
     font-size:25px;
+    letter-spacing:.5px;
 }
 
 .hero-card p{
@@ -242,9 +306,13 @@ header{
     border-radius:10px;
     text-align:center;
     font-size:13px;
+    border:1px solid rgba(255,255,255,.06);
 }
 
-/* COMMON */
+
+/* =========================
+   COMMON
+========================= */
 
 section{
     padding:85px 20px;
@@ -277,7 +345,10 @@ section{
     color:var(--muted);
 }
 
-/* SERVICES */
+
+/* =========================
+   SERVICES
+========================= */
 
 .services{
     background:white;
@@ -328,7 +399,10 @@ section{
     font-size:13px;
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
 
 .about{
     background:var(--light);
@@ -385,7 +459,10 @@ section{
     color:var(--orange);
 }
 
-/* WHY */
+
+/* =========================
+   WHY
+========================= */
 
 .why{
     background:white;
@@ -415,11 +492,18 @@ section{
     font-size:14px;
 }
 
-/* CONTACT */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact{
     background:
-    linear-gradient(135deg,#06152e,#0c2d5c);
+    linear-gradient(
+        135deg,
+        #06152e,
+        #0c2d5c
+    );
     color:white;
 }
 
@@ -466,7 +550,10 @@ section{
     flex-wrap:wrap;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#040e1f;
@@ -480,24 +567,35 @@ footer strong{
     color:white;
 }
 
-/* FLOATING WHATSAPP */
+
+/* =========================
+   FLOATING WHATSAPP
+========================= */
 
 .whatsapp{
     position:fixed;
     right:20px;
     bottom:20px;
+
     width:58px;
     height:58px;
+
     border-radius:50%;
+
     background:#20c76a;
     color:white;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:28px;
     text-decoration:none;
+
     box-shadow:0 8px 25px rgba(0,0,0,.25);
+
     z-index:999;
+
     transition:.25s;
 }
 
@@ -505,20 +603,40 @@ footer strong{
     transform:scale(1.08);
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
+    .nav{
+        padding:6px 15px;
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    .logo img{
+        width:52px;
+        height:52px;
+    }
+
     .nav-links{
         position:absolute;
-        top:62px;
+        top:64px;
         left:0;
         right:0;
+
         background:#071a38;
+
         display:none;
         flex-direction:column;
+
         padding:20px;
         gap:14px;
+
         border-top:1px solid rgba(255,255,255,.1);
     }
 
@@ -557,6 +675,11 @@ footer strong{
     }
 }
 
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
 @media(max-width:520px){
 
     section{
@@ -568,7 +691,7 @@ footer strong{
     }
 
     .hero-inner{
-        padding:65px 15px;
+        padding:60px 15px;
     }
 
     .hero h1{
@@ -576,7 +699,12 @@ footer strong{
     }
 
     .hero-card{
-        padding:22px 15px;
+        padding:25px 15px;
+    }
+
+    .hero-logo{
+        width:150px;
+        height:150px;
     }
 
     .service-grid{
@@ -594,89 +722,201 @@ footer strong{
     .btn{
         width:100%;
     }
+
+    .logo img{
+        width:46px;
+        height:46px;
+    }
+
+    .logo{
+        font-size:16px;
+        gap:7px;
+    }
+
+}
+
+
+/* =========================
+   EXTRA SMALL PHONE
+========================= */
+
+@media(max-width:360px){
+
+    .logo-text{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero-logo{
+        width:135px;
+        height:135px;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <header>
+
 <nav class="nav">
 
 <a href="#home" class="logo">
-IGS <span>HOME CARE</span>
+
+    <img
+        src="assets/igs-logo.png"
+        alt="IGS Home Care Logo">
+
+    <span class="logo-text">
+        IGS <span>HOME CARE</span>
+    </span>
+
 </a>
+
 
 <div class="menu" onclick="toggleMenu()">☰</div>
 
+
 <ul class="nav-links" id="navLinks">
-<li><a href="#home">হোম</a></li>
-<li><a href="#services">সেবাসমূহ</a></li>
-<li><a href="#about">আমাদের সম্পর্কে</a></li>
-<li><a href="#why">কেন IGS?</a></li>
-<li><a href="#contact">যোগাযোগ</a></li>
+
+<li>
+<a href="#home">হোম</a>
+</li>
+
+<li>
+<a href="#services">সেবাসমূহ</a>
+</li>
+
+<li>
+<a href="#about">আমাদের সম্পর্কে</a>
+</li>
+
+<li>
+<a href="#why">কেন IGS?</a>
+</li>
+
+<li>
+<a href="#contact">যোগাযোগ</a>
+</li>
+
 </ul>
 
 </nav>
+
 </header>
 
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="home">
 
 <div class="hero-inner">
 
+
 <div>
 
-<div class="badge">বিশ্বস্ত • দ্রুত • মানসম্মত সেবা</div>
+<div class="badge">
+বিশ্বস্ত • দ্রুত • মানসম্মত সেবা
+</div>
+
 
 <h1>
+
 আপনার সমস্যা,<br>
+
 <span>আমাদের সমাধান।</span>
+
 </h1>
 
+
 <p>
-বাড়ি ও প্রয়োজনীয় স্থাপনার Electrical, Sanitary, Gas,
-CCTV Installation এবং Repair & Maintenance সেবা।
+
+বাড়ি ও প্রয়োজনীয় স্থাপনার
+Electrical, Sanitary, Gas,
+CCTV Installation এবং
+Repair & Maintenance সেবা।
+
 </p>
+
 
 <div class="buttons">
 
-<a class="btn btn-primary"
+<a
+class="btn btn-primary"
 href="tel:01919426929">
+
 📞 এখনই কল করুন
+
 </a>
 
-<a class="btn btn-outline"
+
+<a
+class="btn btn-outline"
 href="https://wa.me/8801919426929"
 target="_blank">
+
 💬 WhatsApp
+
 </a>
 
 </div>
 
 </div>
 
+
+
+<!-- HERO LOGO -->
 
 <div class="hero-card">
 
-<div class="hero-logo">IGS</div>
 
-<h3>IGS HOME CARE</h3>
+<div class="hero-logo">
 
-<p>Professional Home Service</p>
+<img
+src="assets/igs-logo.png"
+alt="IGS Home Care Logo">
+
+</div>
+
+
+<h3>
+IGS HOME CARE
+</h3>
+
+
+<p>
+Professional Home Service
+</p>
+
 
 <div class="service-mini">
 
 <div>⚡ Electrical</div>
+
 <div>🚰 Sanitary</div>
+
 <div>🔥 Gas</div>
+
 <div>📹 CCTV</div>
+
 <div>🛠️ Repair</div>
+
 <div>✓ Maintenance</div>
 
 </div>
+
 
 </div>
 
@@ -685,17 +925,27 @@ target="_blank">
 </section>
 
 
-<!-- SERVICES -->
 
-<section class="services" id="services">
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section
+class="services"
+id="services">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<div class="small">OUR SERVICES</div>
+<div class="small">
+OUR SERVICES
+</div>
 
-<h2>আমাদের সেবাসমূহ</h2>
+<h2>
+আমাদের সেবাসমূহ
+</h2>
 
 <p>
 প্রয়োজন অনুযায়ী নির্ভরযোগ্য ও মানসম্মত হোম সার্ভিস।
@@ -704,56 +954,104 @@ target="_blank">
 </div>
 
 
+
 <div class="service-grid">
 
+
 <div class="service-card">
-<div class="icon">⚡</div>
-<h3>Electrical</h3>
+
+<div class="icon">
+⚡
+</div>
+
+<h3>
+Electrical
+</h3>
+
 <p>
-ওয়্যারিং, লাইট, সুইচ, সকেট, ফ্যান,
-সুইচ বোর্ড ও প্রয়োজনীয় ইলেকট্রিক্যাল কাজ।
+ওয়্যারিং, লাইট, সুইচ, সকেট,
+ফ্যান, সুইচ বোর্ড ও প্রয়োজনীয়
+ইলেকট্রিক্যাল কাজ।
 </p>
+
 </div>
 
 
+
 <div class="service-card">
-<div class="icon">🚰</div>
-<h3>Sanitary</h3>
+
+<div class="icon">
+🚰
+</div>
+
+<h3>
+Sanitary
+</h3>
+
 <p>
 কল, ট্যাপ, বেসিন, শাওয়ার এবং
 প্রয়োজনীয় স্যানিটারি ফিটিংসের কাজ।
 </p>
+
 </div>
 
 
+
 <div class="service-card">
-<div class="icon">🔥</div>
-<h3>Gas Service</h3>
+
+<div class="icon">
+🔥
+</div>
+
+<h3>
+Gas Service
+</h3>
+
 <p>
 গ্যাস চুলা, লিক চেক, পাইপ পরিবর্তন,
 রেগুলেটর ও প্রয়োজনীয় সার্ভিস।
 </p>
+
 </div>
 
 
+
 <div class="service-card">
-<div class="icon">📹</div>
-<h3>CCTV Installation</h3>
+
+<div class="icon">
+📹
+</div>
+
+<h3>
+CCTV Installation
+</h3>
+
 <p>
 CCTV ক্যামেরা, DVR/NVR সেটআপ,
 ইনস্টলেশন ও কনফিগারেশন।
 </p>
+
 </div>
 
 
+
 <div class="service-card">
-<div class="icon">🛠️</div>
-<h3>Repair & Maintenance</h3>
+
+<div class="icon">
+🛠️
+</div>
+
+<h3>
+Repair & Maintenance
+</h3>
+
 <p>
 বাড়ির বিভিন্ন প্রয়োজনীয় ছোটখাটো
 মেরামত ও নিয়মিত রক্ষণাবেক্ষণ।
 </p>
+
 </div>
+
 
 </div>
 
@@ -762,59 +1060,107 @@ CCTV ক্যামেরা, DVR/NVR সেটআপ,
 </section>
 
 
-<!-- ABOUT -->
 
-<section class="about" id="about">
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+class="about"
+id="about">
 
 <div class="container">
 
+
 <div class="about-grid">
+
 
 <div class="about-box">
 
-<h3>IGS Home Care</h3>
+<h3>
+IGS Home Care
+</h3>
 
 <p>
+
 আমাদের লক্ষ্য হলো প্রয়োজনের সময়ে
 সহজভাবে ভালো মানের সার্ভিস দেওয়া।
+
 অপ্রয়োজনীয় বড় প্রতিশ্রুতি নয়—
 প্রয়োজন অনুযায়ী কাজ ও পরিষ্কার যোগাযোগ।
+
 </p>
 
 </div>
 
 
+
 <div>
 
-<div class="section-head" style="text-align:left;margin:0 0 20px">
 
-<div class="small">WHY US</div>
+<div
+class="section-head"
+style="text-align:left;margin:0 0 20px">
 
-<h2>কাজের ক্ষেত্রে আমাদের অগ্রাধিকার</h2>
+<div class="small">
+WHY US
+</div>
+
+<h2>
+কাজের ক্ষেত্রে আমাদের অগ্রাধিকার
+</h2>
 
 </div>
+
+
 
 <div class="checks">
 
-<div class="check">
-<b>✓</b>
-<span>কাজের আগে প্রয়োজনীয় বিষয় পরিষ্কারভাবে জানানো</span>
-</div>
 
 <div class="check">
+
 <b>✓</b>
-<span>পরিষ্কার ও দায়িত্বশীল সার্ভিস</span>
+
+<span>
+কাজের আগে প্রয়োজনীয় বিষয়
+পরিষ্কারভাবে জানানো
+</span>
+
 </div>
 
-<div class="check">
-<b>✓</b>
-<span>গ্রাহকের প্রয়োজন অনুযায়ী কাজ</span>
-</div>
 
 <div class="check">
+
 <b>✓</b>
-<span>যোগাযোগের সহজ ব্যবস্থা</span>
+
+<span>
+পরিষ্কার ও দায়িত্বশীল সার্ভিস
+</span>
+
 </div>
+
+
+<div class="check">
+
+<b>✓</b>
+
+<span>
+গ্রাহকের প্রয়োজন অনুযায়ী কাজ
+</span>
+
+</div>
+
+
+<div class="check">
+
+<b>✓</b>
+
+<span>
+যোগাযোগের সহজ ব্যবস্থা
+</span>
+
+</div>
+
 
 </div>
 
@@ -827,17 +1173,27 @@ CCTV ক্যামেরা, DVR/NVR সেটআপ,
 </section>
 
 
-<!-- WHY -->
 
-<section class="why" id="why">
+<!-- =========================
+     WHY
+========================= -->
+
+<section
+class="why"
+id="why">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<div class="small">IGS HOME CARE</div>
+<div class="small">
+IGS HOME CARE
+</div>
 
-<h2>কেন আমাদের সাথে যোগাযোগ করবেন?</h2>
+<h2>
+কেন আমাদের সাথে যোগাযোগ করবেন?
+</h2>
 
 <p>
 সহজ সার্ভিস, পরিষ্কার যোগাযোগ এবং প্রয়োজন অনুযায়ী সমাধান।
@@ -846,28 +1202,54 @@ CCTV ক্যামেরা, DVR/NVR সেটআপ,
 </div>
 
 
+
 <div class="why-grid">
 
-<div class="why-card">
-<strong>01 — দ্রুত যোগাযোগ</strong>
-<p>
-প্রয়োজন হলে সরাসরি কল বা WhatsApp-এর মাধ্যমে যোগাযোগ করতে পারবেন।
-</p>
-</div>
 
 <div class="why-card">
-<strong>02 — প্রয়োজনভিত্তিক কাজ</strong>
+
+<strong>
+01 — দ্রুত যোগাযোগ
+</strong>
+
 <p>
-যে কাজ প্রয়োজন নেই, সেটাকে অযথা বড় করে দেখানো নয়।
+প্রয়োজন হলে সরাসরি কল বা
+WhatsApp-এর মাধ্যমে যোগাযোগ
+করতে পারবেন।
 </p>
+
 </div>
 
+
+
 <div class="why-card">
-<strong>03 — দায়িত্বশীল সার্ভিস</strong>
+
+<strong>
+02 — প্রয়োজনভিত্তিক কাজ
+</strong>
+
 <p>
-প্রতিটি কাজ যতটা সম্ভব সুন্দর ও পরিষ্কারভাবে সম্পন্ন করার চেষ্টা।
+যে কাজ প্রয়োজন নেই,
+সেটাকে অযথা বড় করে দেখানো নয়।
 </p>
+
 </div>
+
+
+
+<div class="why-card">
+
+<strong>
+03 — দায়িত্বশীল সার্ভিস
+</strong>
+
+<p>
+প্রতিটি কাজ যতটা সম্ভব সুন্দর
+ও পরিষ্কারভাবে সম্পন্ন করার চেষ্টা।
+</p>
+
+</div>
+
 
 </div>
 
@@ -876,52 +1258,93 @@ CCTV ক্যামেরা, DVR/NVR সেটআপ,
 </section>
 
 
-<!-- CONTACT -->
 
-<section class="contact" id="contact">
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+class="contact"
+id="contact">
 
 <div class="container">
 
+
 <div class="section-head">
 
-<div class="small">CONTACT</div>
+<div class="small">
+CONTACT
+</div>
 
-<h2>সার্ভিসের জন্য যোগাযোগ করুন</h2>
+<h2>
+সার্ভিসের জন্য যোগাযোগ করুন
+</h2>
 
 <p>
-আপনার প্রয়োজনের কথা জানাতে সরাসরি কল অথবা WhatsApp করুন।
+আপনার প্রয়োজনের কথা জানাতে সরাসরি
+কল অথবা WhatsApp করুন।
 </p>
 
 </div>
+
 
 
 <div class="contact-box">
 
-<div class="contact-item">
-<span>📞 ফোন</span>
-<strong>01919426929</strong>
-</div>
 
 <div class="contact-item">
-<span>💬 WhatsApp</span>
-<strong>01919426929</strong>
-</div>
+
+<span>
+📞 ফোন
+</span>
+
+<strong>
+01919426929
+</strong>
 
 </div>
+
+
+
+<div class="contact-item">
+
+<span>
+💬 WhatsApp
+</span>
+
+<strong>
+01919426929
+</strong>
+
+</div>
+
+
+</div>
+
 
 
 <div class="contact-buttons">
 
-<a class="btn btn-primary"
+
+<a
+class="btn btn-primary"
 href="tel:01919426929">
+
 📞 কল করুন
+
 </a>
 
-<a class="btn btn-outline"
+
+
+<a
+class="btn btn-outline"
 href="https://wa.me/8801919426929"
 target="_blank">
+
 💬 WhatsApp করুন
+
 </a>
+
 
 </div>
 
@@ -930,9 +1353,16 @@ target="_blank">
 </section>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-<strong>IGS HOME CARE</strong>
+<strong>
+IGS HOME CARE
+</strong>
 
 <br>
 
@@ -940,17 +1370,25 @@ Electrical • Sanitary • Gas • CCTV • Repair & Maintenance
 
 <br><br>
 
-© <span id="year"></span> IGS Home Care. All Rights Reserved.
+© <span id="year"></span>
+IGS Home Care. All Rights Reserved.
 
 </footer>
 
 
-<a class="whatsapp"
+
+<!-- WHATSAPP -->
+
+<a
+class="whatsapp"
 href="https://wa.me/8801919426929"
 target="_blank"
 aria-label="WhatsApp">
+
 💬
+
 </a>
+
 
 
 <script>
@@ -964,7 +1402,10 @@ function toggleMenu(){
 
 }
 
-document.querySelectorAll(".nav-links a").forEach(function(link){
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
 
     link.addEventListener("click",function(){
 
@@ -977,11 +1418,13 @@ document.querySelectorAll(".nav-links a").forEach(function(link){
 
 });
 
-document.getElementById("year").textContent =
+
+document
+.getElementById("year")
+.textContent =
 new Date().getFullYear();
 
 </script>
 
 </body>
- </html>here
-
+    </html>
